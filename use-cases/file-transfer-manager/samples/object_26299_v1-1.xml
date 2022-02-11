@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Copyright (c) 2020 Telit
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+<LWM2M xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://openmobilealliance.org/tech/profiles/LWM2M.xsd">
+            <Object ObjectType="MODefinition">
+              <Name>File Transfer Manager</Name>
+              <Description1><![CDATA[This custom object provides file transfer capabilities]]></Description1>
+              <ObjectID>26299</ObjectID>
+              <ObjectURN>urn:oma:lwm2m:x:26299</ObjectURN>
+			  <LWM2MVersion>1.0</LWM2MVersion>
+			  <ObjectVersion>1.1</ObjectVersion>
+              <MultipleInstances>Multiple</MultipleInstances>
+              <Mandatory>Optional</Mandatory>
+              <Resources>
+			  
+                <Item ID="0">
+                  <Name>File Transfer Type</Name>
+                  <Operations>RW</Operations>
+                  <MultipleInstances>Single</MultipleInstances>
+                  <Mandatory>Mandatory</Mandatory>
+                  <Type>Integer</Type>
+                  <RangeEnumeration>0-1</RangeEnumeration>
+				  <Units></Units>
+                  <Description>
+                    <![CDATA[ Type of transfer:
+						0=FILE_TRANSFER_TYPE_FILE_DOWNLOAD,
+						1=FILE_TRANSFER_TYPE_FILE_UPLOAD]]>
+                  </Description>
+                </Item>
+				
+                <Item ID="1">
+                  <Name>Filename</Name>
+                  <Operations>RW</Operations>
+                  <MultipleInstances>Single</MultipleInstances>
+                  <Mandatory>Mandatory</Mandatory>
+                  <Type>String</Type>
+                  <RangeEnumeration></RangeEnumeration>
+				  <Units></Units>
+                  <Description><![CDATA[Name of the file being transferred]]></Description>
+                </Item>
+
+                <Item ID="2">
+                  <Name>File version</Name>
+                  <Operations>RW</Operations>
+                  <MultipleInstances>Single</MultipleInstances>
+                  <Mandatory>Optional</Mandatory>
+                  <Type>String</Type>
+                  <RangeEnumeration></RangeEnumeration>
+				  <Units></Units>
+                  <Description><![CDATA[Version of the file]]></Description>
+                </Item>
+
+                <Item ID="3">
+                  <Name>FileType</Name>
+                  <Operations>RW</Operations>
+                  <MultipleInstances>Single</MultipleInstances>
+                  <Mandatory>Optional</Mandatory>
+                  <Type>String</Type>
+                  <RangeEnumeration></RangeEnumeration>
+				  <Units></Units>
+                  <Description><![CDATA[FileType: i.e. "XML", "appzone app", "MCU binary", "log", "configuration", etc ]]></Description>
+                </Item>
+				
+				
+    			<Item ID="11">
+                  <Name>Transfer URL</Name>
+                  <Operations>RW</Operations>
+                  <MultipleInstances>Single</MultipleInstances>
+                  <Mandatory>Mandatory</Mandatory>
+                  <Type>String</Type>
+                  <RangeEnumeration></RangeEnumeration>
+				  <Units></Units>
+                  <Description>
+                    <![CDATA[ URL path to the file.
+					for example:
+					ftp://server.com/test.txt;
+					http://hosting.com/XML/object_xxx.xml;
+					https://hosting.com/MCU/MCU_binary_v2.0]]>
+                  </Description>
+                </Item>
+				
+    			<Item ID="12">
+                  <Name>Transfer parameters</Name>
+                  <Operations>RW</Operations>
+                  <MultipleInstances>Multiple</MultipleInstances>
+                  <Mandatory>Optional</Mandatory>
+                  <Type>String</Type>
+                  <RangeEnumeration></RangeEnumeration>
+				  <Units></Units>
+                  <Description>
+                    <![CDATA[additional parameters for the transfer, separated into different resource instances
+					for example:
+					instance 0: "username=user1",
+					instance 1: "password=qwerty"]]>
+                  </Description>
+                </Item>
+				
+    			<Item ID="21">
+                  <Name>State</Name>
+                  <Operations>R</Operations>
+                  <MultipleInstances>Single</MultipleInstances>
+                  <Mandatory>Mandatory</Mandatory>
+                  <Type>Integer</Type>
+                  <RangeEnumeration>0-3</RangeEnumeration>
+				  <Units></Units>
+                  <Description>
+                    <![CDATA[0=IDLE,
+					1=FILE_TRANSFER_IN_PROGRESS,
+					2=FILE_TRANSFER_COMPLETED,
+					3=FILE_TRANSFER_FAILED]]>
+                  </Description>
+    			</Item>
+				
+				
+				<Item ID="22">
+                  <Name>Transfer message</Name>
+                  <Operations>R</Operations>
+                  <MultipleInstances>Single</MultipleInstances>
+                  <Mandatory>Optional</Mandatory>
+                  <Type>String</Type>
+                  <RangeEnumeration></RangeEnumeration>
+				  <Units></Units>
+                  <Description><![CDATA[Any additional message related to the last transfer]]></Description>
+                </Item>
+
+
+
+
+
+				
+                <Item ID="31">
+                  <Name>Transfer URL request</Name>
+                  <Operations>R</Operations>
+                  <MultipleInstances>Single</MultipleInstances>
+                  <Mandatory>Optional</Mandatory>
+                  <Type>Integer</Type>
+                  <RangeEnumeration></RangeEnumeration>
+				  <Units></Units>
+                  <Description>
+                    <![CDATA[this resource can be used to request a Transfer URL. It can be an integer, a timestamp, a session ID, etc.
+					for example, the MCU wants to upload a log or wants to receive a configuration file]]>
+                  </Description>
+                </Item>
+				
+		
+              </Resources>
+              <Description2/>
+            </Object>
+</LWM2M>
