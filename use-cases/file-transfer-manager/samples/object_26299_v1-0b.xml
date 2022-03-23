@@ -13,7 +13,7 @@ DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
               <ObjectID>26299</ObjectID>
               <ObjectURN>urn:oma:lwm2m:x:26299</ObjectURN>
 			  <LWM2MVersion>1.0</LWM2MVersion>
-			  <ObjectVersion>1.1</ObjectVersion>
+			  <ObjectVersion>1.0b</ObjectVersion>
               <MultipleInstances>Multiple</MultipleInstances>
               <Mandatory>Optional</Mandatory>
               <Resources>
